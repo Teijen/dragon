@@ -6,7 +6,7 @@ appdirs==1.4.4
 archinfo==9.0.7491
 argcomplete==3.0.8
 astcheck==0.3.0
--e git+ssh://git@github.com/lasserre/astlib.git@6d32c662823dbc5040202cac6ca6288bff6f7e1b#egg=astlib
+-e git+ssh://git@github.com/lasserre/astlib.git@cf6ef022ace81335050c5d31ad34795743e73552#egg=astlib
 asttokens==2.2.1
 async-timeout==4.0.3
 attrs==23.1.0
