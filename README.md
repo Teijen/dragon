@@ -8,7 +8,7 @@ This holds the experiment artifacts for the DRAGON paper `insert paper name here
 # Quickstart
 `python -m venv <dragon_env> && <dragon_venv>/bin/activate`
 
-`pip install -r pip_freeze_2024.12.31.txt`
+`pip install -r pip_freeze_2025.01.01.txt`
 
 **TODO: easiest/quickest option - run eval script**
 
