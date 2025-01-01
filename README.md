@@ -39,6 +39,20 @@ cea8f48
 674ee41     # this one doesn't fail, but seems to hang forever, so is excluded
 ~~~
 
+### Sample Output
+Here is what my final status looked like once I successfully reran a couple of
+jobs that had hung:
+
+~~~
+$ wdb status | grep -v finished | grep Run
+Run 1271 (-1271.02ab506) - FAILED during "export_asts_strip" [0:03:17]
+Run 1577 (-1577.9f89779) - FAILED during "export_asts_strip" [0:03:33]
+Run 2941 (-2941.2cefb8a) - FAILED during "export_asts_strip" [0:03:01]
+Run 3725 (-3725.674ee41) running "ghidra_import_debug" [0:27:45] Total: [0:27:45]
+Run 3945 (-3945.fc2d878) - FAILED during "export_asts_strip" [0:03:10]
+Run 4845 (-4845.cea8f48) - FAILED during "export_asts_strip" [0:02:23]
+~~~
+
 ## Fixing any jobs that hang
 If running with many parallel jobs, you may need to kill it and rerun any
 that are hung.
