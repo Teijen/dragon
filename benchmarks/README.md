@@ -1,24 +1,36 @@
 # Coreutils
-We build coreutils v8.32 and include all binaries except those found in the `gnulib-tests` folder,
+
+We build coreutils v9.0 and include all binaries except those found in the `gnulib-tests` folder,
 resulting in 109 binaries
-* Source:  https://github.com/coreutils/coreutils.git
-* Tag: `v8.32`
+* Source:  https://ftp.gnu.org/gnu/coreutils/coreutils-9.0.tar.gz
 
 ~~~
 $ find_binaries ../../build/coreutils_v8.32/run1/ | grep -v gnulib-tests | wc -l
 109
 ~~~
 
-# OpenSSL
+# Complex Benchmark
 
-We build OpenSSL v1.1.1k
+## OpenSSL
+
+We build OpenSSL v1.1.1k, and use the `libssl.so` binary
 * Source: https://github.com/openssl/openssl.git
 * Tag: `OpenSSL_1_1_1k`
 
-# Nginx
+## Nginx
 
-We build nginx 1.26.2
+We build Nginx 1.26.2, and use the `nginx` binary
 * Source https://nginx.org/download/nginx-1.26.2.tar.gz
+
+## Redis
+
+We build Redis 7.2.4, and use the `redis-server` binary
+* Source https://github.com/redis/redis/archive/refs/tags/7.2.4.tar.gz
+
+## PostgreSQL
+
+We build PostgreSQL 17.2, and use the `postgres` binary
+* Source https://ftp.postgresql.org/pub/source/v17.2/postgresql-17.2.tar.gz
 
 # ReSym Test Binaries
 
