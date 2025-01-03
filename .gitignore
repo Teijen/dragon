@@ -1,3 +1,7 @@
 exps/
 datasets/
 tygr_evals/
+tygr_evals.old/
+training_artifacts/*.tar.gz
+training_artifacts/dragon_resym_train
+training_artifacts/dragon_tydamin

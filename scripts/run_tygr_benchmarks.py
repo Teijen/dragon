@@ -39,6 +39,13 @@ def main():
         ('openssl_O3',      'x64.O3.base.model'),
     ]
 
+    # TODO: run complex together
+    # TODO: run each coreutils config in parallel
+        # - arm64 O0
+        # - arm64 O1
+        # ...
+        # - x64 O3
+
     run_tygr_eval = Path('scripts/run_tygr_eval.py').absolute()
 
     with cd(TYGR_FOLDER):

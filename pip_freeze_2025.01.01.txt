@@ -28,7 +28,7 @@ comm==0.1.4
 contourpy==1.1.1
 CppHeaderParser==2.7.4
 cycler==0.11.0
--e git+ssh://git@github.com/lasserre/datatype-recovery-experiments.git@c35d0e7794fee9e5a7caae8aa36599f58190b5bf#egg=datatype_recovery
+-e git+ssh://git@github.com/lasserre/datatype-recovery-experiments.git@610d9cd7027836f55d447bf378dcf7f12b3f1f4a#egg=datatype_recovery
 debugpy==1.8.0
 decorator==5.1.1
 defusedxml==0.7.1
