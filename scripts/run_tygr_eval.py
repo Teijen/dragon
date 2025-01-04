@@ -35,6 +35,7 @@ def run_tygr_eval(eval_args:dict):
                                 stdout=f, stderr=subprocess.STDOUT,
                                 shell=True)
             tygr_rcode = p.returncode
+            status = STATUS.ErrorCode if tygr_rcode != 0 else STATUS.Success
 
     csv_files = list(bin_output_folder.glob('*.csv'))
 
