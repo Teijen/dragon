@@ -17,20 +17,24 @@ We build OpenSSL v1.1.1k, and use the `libssl.so` binary
 * Source: https://github.com/openssl/openssl.git
 * Tag: `OpenSSL_1_1_1k`
 
+## Apache
+We build Apache 2.4.62, and use the `httpd` binary
+* Source: https://dlcdn.apache.org/httpd/httpd-2.4.62.tar.gz
+
 ## Nginx
 
 We build Nginx 1.26.2, and use the `nginx` binary
-* Source https://nginx.org/download/nginx-1.26.2.tar.gz
+* Source: https://nginx.org/download/nginx-1.26.2.tar.gz
 
 ## Redis
 
 We build Redis 7.2.4, and use the `redis-server` binary
-* Source https://github.com/redis/redis/archive/refs/tags/7.2.4.tar.gz
+* Source: https://github.com/redis/redis/archive/refs/tags/7.2.4.tar.gz
 
-## PostgreSQL
+## Sqlite
 
-We build PostgreSQL 17.2, and use the `postgres` binary
-* Source https://ftp.postgresql.org/pub/source/v17.2/postgresql-17.2.tar.gz
+We build Sqlite 34.7.02, and use the `sqlite3` binary
+* Source: https://www.sqlite.org/2024/sqlite-autoconf-3470200.tar.gz
 
 # ReSym Test Binaries
 
