@@ -36,8 +36,12 @@ def run_tygr_eval(eval_args:dict):
                                 shell=True)
             tygr_rcode = p.returncode
             status = STATUS.ErrorCode if tygr_rcode != 0 else STATUS.Success
+            if tygr_rcode != 0:
+                console.print(f'[bold red]TYGR failed for binary {bin_file.name} with error code {tygr_rcode}')
 
     csv_files = list(bin_output_folder.glob('*.csv'))
+    if not csv_files:
+        console.print(f'[red]No output CSV file found for binary {bin_file.name}')
 
     # (status, csv_file, tygr_rcode)
     return (status, csv_files[0] if csv_files else None, tygr_rcode)
@@ -67,15 +71,9 @@ def main(args):
         } for bin_file in binaries]
 
         console.rule(f'Running TYGR on {len(binaries):,} binaries across {args.njobs} jobs')
-        results = list(tqdm(pool.imap(run_tygr_eval,run_args), total=len(run_args)))
-
-        for i, res in enumerate(results):
-            if res[0] == STATUS.OutFolderExists:
-                console.print(f'[yellow]Output folder for {binaries[i].name} already exists - skipping')
-            elif res[0] == STATUS.ErrorCode:
-                console.print(f'[bold red]TYGR failed for binary {binaries[i].name} with error code {res[2]}')
-            elif res[1] is None:
-                console.print(f'[red]No CSV file found for binary {binaries[i].name}')
+        results = []
+        for r in tqdm(pool.imap(run_tygr_eval,run_args), total=len(run_args)):
+            results.append(r)
 
     success = all([res[0] == STATUS.Success for res in results])
 

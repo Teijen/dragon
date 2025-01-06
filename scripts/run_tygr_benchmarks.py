@@ -56,29 +56,29 @@ def main():
         # verify that redis can finish first...
         ('complex-redis',       'x64.O0.base.model',        1),
         ('complex',             'x64.O0.base.model',        4),
-        ('coreutils_arm64_O0',  'aarch64.O0.base.model',    40),
-        ('coreutils_arm64_O1',  'aarch64.O1.base.model',    40),
-        ('coreutils_arm64_O2',  'aarch64.O2.base.model',    40),
-        ('coreutils_arm64_O3',  'aarch64.O3.base.model',    40),
-        ('coreutils_armhf_O0',  'arm32.O0.base.model',      40),
-        ('coreutils_armhf_O1',  'arm32.O1.base.model',      40),
-        ('coreutils_armhf_O2',  'arm32.O2.base.model',      40),
-        ('coreutils_armhf_O3',  'arm32.O3.base.model',      40),
-        ('coreutils_x64_O0',    'x64.O0.base.model',        40),
-        ('coreutils_x64_O1',    'x64.O1.base.model',        40),
-        ('coreutils_x64_O2',    'x64.O2.base.model',        40),
-        ('coreutils_x64_O3',    'x64.O3.base.model',        40),
-        ('coreutils_x86_O0',    'x86.O0.base.model',        40),
-        ('coreutils_x86_O1',    'x86.O1.base.model',        40),
-        ('coreutils_x86_O2',    'x86.O2.base.model',        40),
-        ('coreutils_x86_O3',    'x86.O3.base.model',        40),
+        ('coreutils_arm64_O0',  'aarch64.O0.base.model',    15),
+        ('coreutils_arm64_O1',  'aarch64.O1.base.model',    15),
+        ('coreutils_arm64_O2',  'aarch64.O2.base.model',    15),
+        ('coreutils_arm64_O3',  'aarch64.O3.base.model',    15),
+        ('coreutils_armhf_O0',  'arm32.O0.base.model',      15),
+        ('coreutils_armhf_O1',  'arm32.O1.base.model',      15),
+        ('coreutils_armhf_O2',  'arm32.O2.base.model',      15),
+        ('coreutils_armhf_O3',  'arm32.O3.base.model',      15),
+        ('coreutils_x64_O0',    'x64.O0.base.model',        15),
+        ('coreutils_x64_O1',    'x64.O1.base.model',        15),
+        ('coreutils_x64_O2',    'x64.O2.base.model',        15),
+        ('coreutils_x64_O3',    'x64.O3.base.model',        15),
+        ('coreutils_x86_O0',    'x86.O0.base.model',        15),
+        ('coreutils_x86_O1',    'x86.O1.base.model',        15),
+        ('coreutils_x86_O2',    'x86.O2.base.model',        15),
+        ('coreutils_x86_O3',    'x86.O3.base.model',        15),
     ]
 
     run_tygr_eval = Path('scripts/run_tygr_eval.py').absolute()
 
     with cd(TYGR_FOLDER):
         for bm_name, model, njobs in benchmarks:
-            console.rule(f'Evaluating {bm_name} using model {model}')
+            console.rule(f'Evaluating [bold green]{bm_name}[/] using model {model}')
             bins_folder = BENCHMARKS_FOLDER/bm_name
             out_folder = OUT_FOLDER/f'{bm_name}.tygr'
             model_file = TYGR_FOLDER/'model/MODEL_base'/model
