@@ -5,3 +5,4 @@ training_artifacts/*.tar.gz
 training_artifacts/dragon_resym_train
 training_artifacts/dragon_tydamin
 *.tar.gz
+dragon_evals*/
