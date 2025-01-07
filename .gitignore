@@ -4,3 +4,4 @@ tygr_evals*/
 training_artifacts/*.tar.gz
 training_artifacts/dragon_resym_train
 training_artifacts/dragon_tydamin
+*.tar.gz
