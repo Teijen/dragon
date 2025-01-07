@@ -56,22 +56,32 @@ def main():
         # verify that redis can finish first...
         ('complex-redis',       'x64.O0.base.model',        1),
         ('complex',             'x64.O0.base.model',        4),
-        ('coreutils_arm64_O0',  'aarch64.O0.base.model',    15),
-        ('coreutils_arm64_O1',  'aarch64.O1.base.model',    15),
-        ('coreutils_arm64_O2',  'aarch64.O2.base.model',    15),
-        ('coreutils_arm64_O3',  'aarch64.O3.base.model',    15),
-        ('coreutils_armhf_O0',  'arm32.O0.base.model',      15),
-        ('coreutils_armhf_O1',  'arm32.O1.base.model',      15),
-        ('coreutils_armhf_O2',  'arm32.O2.base.model',      15),
-        ('coreutils_armhf_O3',  'arm32.O3.base.model',      15),
-        ('coreutils_x64_O0',    'x64.O0.base.model',        15),
-        ('coreutils_x64_O1',    'x64.O1.base.model',        15),
-        ('coreutils_x64_O2',    'x64.O2.base.model',        15),
-        ('coreutils_x64_O3',    'x64.O3.base.model',        15),
-        ('coreutils_x86_O0',    'x86.O0.base.model',        15),
-        ('coreutils_x86_O1',    'x86.O1.base.model',        15),
-        ('coreutils_x86_O2',    'x86.O2.base.model',        15),
-        ('coreutils_x86_O3',    'x86.O3.base.model',        15),
+
+        # finish factor first if possible...
+        ('coreutils_armhf_O0',  'arm32.O0.base.model',      10),
+        # ('coreutils_armhf_O1',  'arm32.O1.base.model',      10),
+        # ('coreutils_armhf_O2',  'arm32.O2.base.model',      10),
+        # ('coreutils_armhf_O3',  'arm32.O3.base.model',      10),
+
+        # finish O0 first to have a "complete set"
+        ('coreutils_x64_O0',    'x64.O0.base.model',        10),
+
+        ('coreutils_x86_O0',    'x86.O0.base.model',        10),
+
+        ('coreutils_arm64_O0',  'aarch64.O0.base.model',    10),
+        ('coreutils_arm64_O1',  'aarch64.O1.base.model',    10),
+        ('coreutils_arm64_O2',  'aarch64.O2.base.model',    10),
+        ('coreutils_arm64_O3',  'aarch64.O3.base.model',    10),
+
+
+        ('coreutils_x64_O1',    'x64.O1.base.model',        10),
+        ('coreutils_x64_O2',    'x64.O2.base.model',        10),
+        ('coreutils_x64_O3',    'x64.O3.base.model',        10),
+
+
+        # ('coreutils_x86_O1',    'x86.O1.base.model',        10),
+        # ('coreutils_x86_O2',    'x86.O2.base.model',        10),
+        # ('coreutils_x86_O3',    'x86.O3.base.model',        10),
     ]
 
     run_tygr_eval = Path('scripts/run_tygr_eval.py').absolute()

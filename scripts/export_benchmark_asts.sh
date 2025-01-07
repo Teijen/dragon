@@ -1,5 +1,5 @@
 
-NJOBS=80
+NJOBS=25
 DRAGON_DATA_FOLDER=~/dragon_data
 BENCHMARKS_FOLDER=$DRAGON_DATA_FOLDER/benchmarks
 
@@ -14,6 +14,11 @@ export_benchmark_asts () {
 
     orig_dir=`pwd`
 
+    if [ -d "./exps/$exp_folder" ]; then
+        echo "$exp_folder already exists! Skipping..."
+        return 1
+    fi
+
     echo "------------ Creating experiment for benchmark: $bm_name ------------"
 
     # create wildebeest experiment
@@ -27,8 +32,9 @@ export_benchmark_asts () {
     cd $orig_dir
 }
 
-for dir in "$BENCHMARKS_FOLDER"/*/     # list directories in the form "/tmp/dirname/"
+for dir in "$BENCHMARKS_FOLDER"/*/
 do
     dir=${dir%*/}      # remove the trailing "/"
     export_benchmark_asts $dir
+    #echo $dir
 done
