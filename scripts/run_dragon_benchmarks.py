@@ -6,11 +6,18 @@ from typing import List
 
 from wildebeest.utils import print_runtime
 
-def eval_model_on_benchmarks(benchmarks:List[Path], model_path:Path, out_folder:Path):
+def eval_model_on_benchmarks(benchmarks:List[Path], model_path:Path, out_folder:Path, test_split:bool=False):
     for bm in benchmarks:
+        eval_outfolder = Path(f'{out_folder/bm.name}.dragon')
+        if eval_outfolder.exists():
+            print(f'Eval output folder {eval_outfolder} already exists! Skipping...')
+            continue
         with print_runtime(f'{bm.name}'):
-            #print(' '.join(['eval_simple_types', f'{out_folder/bm.name}.dragon', '--dataset', str(bm), '--dragon', str(model_path)]))
-            subprocess.call(['eval_simple_types', f'{out_folder/bm.name}.dragon', '--dataset', str(bm), '--dragon', str(model_path)])
+            cmd =  ['eval_simple_types', str(eval_outfolder), '--dataset', str(bm), '--dragon', str(model_path)]
+            if test_split:
+                cmd.append('--test-split')
+            subprocess.call(cmd)
+            # print(' '.join(cmd))
 
 def main():
     # run from top-level dragon folder: ./scripts/run_dragon_benchmarks.py
@@ -27,16 +34,16 @@ def main():
     resym_ds = datasets_folder/'resym_test_5hops'
     test_split_ds = datasets_folder/'tydamin_sample_5hops'  # for test split
 
-    # tydamin_model = models_folder/'dragon_tydamin_ep27.pt'
-    # resym_model = models_folder/'dragon_resym_train_ep32.pt'
-
     tydamin_model = models_folder/'dragon_tydamin_ep20.pt'
-    resym_model = models_folder/'dragon_resym_train_ep35.pt'
+    resym_model = models_folder/'dragon_resym_train_ep32.pt'
 
     # tydamin model
-    # TODO: eval on test_split only
+    console.rule(f'Eval [green]{tydamin_model.name}[/] on [cyan]TyDAmin Test Split')
+    eval_model_on_benchmarks([test_split_ds], tydamin_model, out_folder, test_split=True)
+
     console.rule(f'Eval [green]{tydamin_model.name}[/] on [cyan]Coreutils Benchmarks')
     eval_model_on_benchmarks(coreutils_ds_list, tydamin_model, out_folder)
+
     console.rule(f'Eval [green]{tydamin_model.name}[/] on [cyan]Complex Benchmark')
     eval_model_on_benchmarks([complex_ds], tydamin_model, out_folder)
 
