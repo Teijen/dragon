@@ -1,6 +1,6 @@
 # DRAGON
 
-This holds the experiment artifacts for the paper *DRAGON: Predicting Decompiled Variable Data Types with Learned Confidence Estimates*.
+This is the companion repository for the paper *DRAGON: Predicting Decompiled Variable Data Types with Learned Confidence Estimates*.
 
 # Data Artifacts
 Several artifacts are available for download [here](https://drive.google.com/drive/folders/1ccE8IJiHOLn0l9_GG3hysSGxCC2tF_eo?usp=drive_link).
@@ -11,7 +11,7 @@ The folders include:
 - `dragon_evals` - dragon eval output data from which paper results were computed
 - `training_artifacts` - training scripts, parameters, and outputs for the models used in the paper
 
-# Quickstart
+# Run DRAGON on prebuilt datasets
 
 1. Download pre-built datasets for the paper from [here](https://drive.google.com/drive/folders/1ccE8IJiHOLn0l9_GG3hysSGxCC2tF_eo?usp=drive_link)
 
@@ -34,7 +34,10 @@ The folders include:
 
     `./scripts/run_dragon_benchmarks.py`
 
-# Creating Datasets
+**These steps are all that is required to run DRAGON on the prebuilt datasets used in the paper.**
+The remaining notes below are included for reference only if you need to create new datasets from debug binaries.
+
+# (Optional) Creating Datasets
 To build a PyG dataset from a set of debug binaries, the process is:
 
 1. Process the debug binaries using an `import-dataset` [wildebeest](https://github.com/lasserre/wildebeest) experiment. This performs the following steps:
