@@ -1,7 +1,7 @@
 
-EXP_FOLDER=./exps/tydamin_sample.exp
+EXP_FOLDER=./exps/binja_tydamin_sample.exp
 NUM_HOPS=5
-DATASET_FOLDER=./datasets/tydamin_sample_"$NUM_HOPS"hops
+DATASET_FOLDER=./binjaDatasets/tydamin_sample_"$NUM_HOPS"hops
 TEST_SPLIT=0.1
 
 ###########################################

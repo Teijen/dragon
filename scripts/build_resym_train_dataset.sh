@@ -1,7 +1,7 @@
 
-EXP_FOLDER=./exps/resym_trainbins.exp
+EXP_FOLDER=./exps/binja_resym_trainbins.exp
 NUM_HOPS=5
-DATASET_FOLDER=./datasets/resym_train_"$NUM_HOPS"hops
+DATASET_FOLDER=./binjaDatasets/resym_train_"$NUM_HOPS"hops
 
 ###########################################
 # run this from the top-level dragon folder

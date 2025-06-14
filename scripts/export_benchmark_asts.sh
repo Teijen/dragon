@@ -1,6 +1,6 @@
 
-NJOBS=25
-DRAGON_DATA_FOLDER=~/dragon_data
+NJOBS=8
+DRAGON_DATA_FOLDER=/home/logan/Dev/IntermediateDragon/dragonBinaries
 BENCHMARKS_FOLDER=$DRAGON_DATA_FOLDER/benchmarks
 
 ###########################################
@@ -10,7 +10,7 @@ BENCHMARKS_FOLDER=$DRAGON_DATA_FOLDER/benchmarks
 export_benchmark_asts () {
     bm_folder=$1
     bm_name=`basename $bm_folder`
-    exp_folder="$bm_name"_benchmark.exp
+    exp_folder="$bm_name"_benchmark_binja.exp
 
     orig_dir=`pwd`
 
@@ -23,7 +23,7 @@ export_benchmark_asts () {
 
     # create wildebeest experiment
     cd ./exps
-    wdb create import-dataset $exp_folder -p bin_folder=$bm_folder
+    wdb create import-dataset-binja $exp_folder -p bin_folder=$bm_folder
 
     # run experiment (import into Ghidra, extract ASTs and AST var data)
     cd $exp_folder

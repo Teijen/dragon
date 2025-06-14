@@ -6,13 +6,13 @@ import subprocess
 
 def main():
     EXPS_FOLDER=Path('exps')
-    DATASETS_FOLDER=Path('datasets')
+    DATASETS_FOLDER=Path('binjaDatasets')
     ##################################################
 
     console = Console()
 
     num_hops = 5
-    benchmark_exps = list(EXPS_FOLDER.glob('*_benchmark.exp'))
+    benchmark_exps = list(EXPS_FOLDER.glob('*_benchmark_binja.exp'))
 
     resym_list = list(filter(lambda x: 'resym_test' in x.name, benchmark_exps))
     resym_exp = resym_list[0] if resym_list else None
@@ -31,7 +31,7 @@ def main():
         console.rule(f'Building [cyan]ReSym test[/] dataset')
         subprocess.call(['time', 'dragon', 'build', '--from-exps',
                         str(resym_test_dspath), str(num_hops), str(resym_exp),
-                        '--func-list', './scripts/resym_test_funcs.csv'])
+                        '--func-list', './dragon/scripts/resym_test_funcs.csv'])
 
     # ------------ Complex
     complex_dspath = [get_dataset_folder(exp_folder, num_hops) for exp_folder in complex_exps if 'redis' not in exp_folder.name][0]
