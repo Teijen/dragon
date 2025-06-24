@@ -21,8 +21,8 @@ def eval_model_on_benchmarks(benchmarks:List[Path], model_path:Path, out_folder:
 
 def main():
     # run from top-level dragon folder: ./scripts/run_dragon_benchmarks.py
-    datasets_folder = Path('datasets').absolute()
-    models_folder = Path('models').absolute()
+    datasets_folder = Path('binjaDatasets').absolute()
+    models_folder = Path('evalModels').absolute()
     out_folder = Path('dragon_evals').absolute()
     ##################################################
 
@@ -34,8 +34,8 @@ def main():
     resym_ds = datasets_folder/'resym_test_5hops'
     test_split_ds = datasets_folder/'tydamin_sample_5hops'  # for test split
 
-    tydamin_model = models_folder/'dragon_tydamin_ep20.pt'
-    resym_model = models_folder/'dragon_resym_train_ep32.pt'
+    tydamin_model = models_folder/'binja_tydamin_ep35.pt'
+    resym_model = models_folder/'binja_resym_train_ep35.pt'
 
     # tydamin model
     console.rule(f'Eval [green]{tydamin_model.name}[/] on [cyan]TyDAmin Test Split')
